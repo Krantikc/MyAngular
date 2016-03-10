@@ -17,6 +17,18 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('LoginCtrl', function($scope, $stateParams, Chats, $state) {
+    $scope.data = {};
+  $scope.login = function() {
+      
+      if($scope.data.username === 'admin' && $scope.data.password === 'admin1' ) {
+          $state.go('tab.dash');
+      } else {
+          alert('Invalid username or password');
+      }
+      
+  }
+})
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
